@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-POP 產業百科</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto+Sans+TC', sans-serif;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .active-tab-btn {
+            background-color: #f3e8ff;
+            color: #7e22ce;
+            font-weight: 700;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 pb-20">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white py-12 px-6 text-center shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight flex items-center justify-center gap-3">
+            <i data-lucide="zap" class="fill-current"></i> K-POP 產業百科
+        </h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto font-medium">
+            從首爾走向世界：探索韓流音樂產業的運作邏輯與成功秘訣。
+        </p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50 overflow-x-auto">
+        <div class="max-w-5xl mx-auto flex justify-around p-2 min-w-[500px]">
+            <button onclick="switchTab('history')" id="btn-history" class="tab-btn active-tab-btn flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 text-slate-500 hover:text-purple-600">
+                <i data-lucide="history" size="18"></i>
+                <span>發展歷程</span>
+            </button>
+            <button onclick="switchTab('trainee')" id="btn-trainee" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 text-slate-500 hover:text-purple-600">
+                <i data-lucide="users" size="18"></i>
+                <span>練習生制度</span>
+            </button>
+            <button onclick="switchTab('companies')" id="btn-companies" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 text-slate-500 hover:text-purple-600">
+                <i data-lucide="star" size="18"></i>
+                <span>四大巨頭</span>
+            </button>
+            <button onclick="switchTab('culture')" id="btn-culture" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 text-slate-500 hover:text-purple-600">
+                <i data-lucide="heart" size="18"></i>
+                <span>粉絲文化</span>
+            </button>
+            <button onclick="switchTab('impact')" id="btn-impact" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 text-slate-500 hover:text-purple-600">
+                <i data-lucide="globe" size="18"></i>
+                <span>全球影響力</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto mt-8 px-6">
+        
+        <!-- History Tab -->
+        <section id="history" class="tab-content active">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 border-l-4 border-purple-500 pl-3">
+                K-pop 世代演進
+            </h2>
+            <div class="space-y-4" id="generation-list">
+                <!-- Content will be injected by JS or kept static -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-sm font-bold text-purple-600 uppercase tracking-wider">第一代 (1990s)</span>
+                            <h3 class="text-xl font-bold mt-1">H.O.T, S.E.S, 神話</h3>
+                        </div>
+                        <p class="text-slate-600 md:w-2/3">偶像產業的萌芽，確立了組合經營模式。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-sm font-bold text-purple-600 uppercase tracking-wider">第二代 (2000s)</span>
+                            <h3 class="text-xl font-bold mt-1">BIGBANG, 少女時代, Super Junior</h3>
+                        </div>
+                        <p class="text-slate-600 md:w-2/3">韓流走向亞洲，確立練習生培訓系統。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-sm font-bold text-purple-600 uppercase tracking-wider">第三代 (2010s)</span>
+                            <h3 class="text-xl font-bold mt-1">BTS, EXO, TWICE, BLACKPINK</h3>
+                        </div>
+                        <p class="text-slate-600 md:w-2/3">社交媒體時代，成功打入歐美主流市場。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-sm font-bold text-purple-600 uppercase tracking-wider">第四代 (2018+)</span>
+                            <h3 class="text-xl font-bold mt-1">NewJeans, IVE, Stray Kids, aespa</h3>
+                        </div>
+                        <p class="text-slate-600 md:w-2/3">強調概念、世界觀，與元宇宙/數位趨勢結合。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-sm font-bold text-purple-600 uppercase tracking-wider">第五代 (2023+)</span>
+                            <h3 class="text-xl font-bold mt-1">RIIZE, ZEROBASEONE, BABYMONSTER</h3>
+                        </div>
+                        <p class="text-slate-600 md:w-2/3">回歸自然感，更強調實力與全球化同步出道。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trainee Tab -->
+        <section id="trainee" class="tab-content">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold mb-4">練習生的「地獄」課表</h2>
+                <p class="text-slate-600 mb-8">出道前的磨練平均長達 3 到 5 年，競爭率甚至低於 0.1%。</p>
+                
+                <div class="relative border-l-2 border-purple-200 ml-4 space-y-8 pb-4">
+                    <div class="relative pl-8">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-purple-500 border-2 border-white shadow"></div>
+                        <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
+                            <span class="font-mono font-bold text-purple-600 whitespace-nowrap">07:00</span>
+                            <h4 class="font-bold text-lg">起床與晨練</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">保持體態，練習生通常有嚴格的體重管理。</p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-purple-500 border-2 border-white shadow"></div>
+                        <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
+                            <span class="font-mono font-bold text-purple-600 whitespace-nowrap">09:00</span>
+                            <h4 class="font-bold text-lg">語言學習</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">學習英、日、中文，為全球市場做準備。</p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-purple-500 border-2 border-white shadow"></div>
+                        <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
+                            <span class="font-mono font-bold text-purple-600 whitespace-nowrap">11:00</span>
+                            <h4 class="font-bold text-lg">聲樂練習</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">分組或個人歌唱技巧訓練。</p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-purple-500 border-2 border-white shadow"></div>
+                        <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
+                            <span class="font-mono font-bold text-purple-600 whitespace-nowrap">14:00</span>
+                            <h4 class="font-bold text-lg">舞蹈特訓</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">每日最少 4-6 小時，追求「刀群舞」的整齊度。</p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-purple-500 border-2 border-white shadow"></div>
+                        <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
+                            <span class="font-mono font-bold text-purple-600 whitespace-nowrap">23:00</span>
+                            <h4 class="font-bold text-lg">自主練習</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">許多練習生會練習到凌晨以彌補不足。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Companies Tab -->
+        <section id="companies" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col">
+                <div class="bg-black h-2"></div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-black mb-1">HYBE</h3>
+                    <p class="text-sm text-slate-400 mb-4 font-bold">創辦人：房時赫</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-xs uppercase text-slate-400 font-bold mb-1">風格特色</h4>
+                            <p class="text-slate-700 text-sm leading-relaxed">強調敘事、創作自由、多元廠牌(Multi-label)</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase text-slate-400 font-bold mb-1">代表藝人</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">BTS</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">SEVENTEEN</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">NewJeans</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col">
+                <div class="bg-pink-600 h-2"></div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-black mb-1">SM Entertainment</h3>
+                    <p class="text-sm text-slate-400 mb-4 font-bold">創辦人：李秀滿</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-xs uppercase text-slate-400 font-bold mb-1">風格特色</h4>
+                            <p class="text-slate-700 text-sm leading-relaxed">強大的世界觀(KWANGYA)、精湛歌唱與表演實力</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase text-slate-400 font-bold mb-1">代表藝人</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">NCT</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">aespa</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">Red Velvet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional companies can be added similarly -->
+        </section>
+
+        <!-- Culture Tab -->
+        <section id="culture" class="tab-content">
+            <h2 class="text-2xl font-bold mb-6">獨特的粉絲生態系</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-pink-200 transition-colors">
+                    <h4 class="text-pink-600 font-bold text-lg mb-1">Bias (本命)</h4>
+                    <p class="text-slate-600 text-sm">團體中最喜歡的成員。</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-pink-200 transition-colors">
+                    <h4 class="text-pink-600 font-bold text-lg mb-1">Comeback (回歸)</h4>
+                    <p class="text-slate-600 text-sm">藝人發布新作品並開始打歌活動。</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-pink-200 transition-colors">
+                    <h4 class="text-pink-600 font-bold text-lg mb-1">Lightstick (手燈)</h4>
+                    <p class="text-slate-600 text-sm">各團專屬的應援燈，形成海一般的應援。</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-pink-200 transition-colors">
+                    <h4 class="text-pink-600 font-bold text-lg mb-1">PC (小卡)</h4>
+                    <p class="text-slate-600 text-sm">隨專輯附贈的成員照片卡，是強大的收藏品。</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-3xl border border-indigo-100">
+                <h3 class="font-bold text-indigo-800 mb-2 flex items-center gap-2">
+                    <i data-lucide="mic-2" size="20"></i> 應援與打榜文化
+                </h3>
+                <p class="text-sm text-indigo-700 leading-relaxed">
+                    K-pop 粉絲不僅是聽眾，更是「合夥人」。他們通過集資應援、在音樂節目投票、刷音源數據，直接影響偶像的成功。這種高度參與感是 K-pop 黏著度極強的主因。
+                </p>
+            </div>
+        </section>
+
+        <!-- Impact Tab -->
+        <section id="impact" class="tab-content space-y-6">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold mb-6 text-center">為什麼 K-pop 能統治世界？</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">高度工業化</h4>
+                        <p class="text-xs text-slate-500">從選秀到包裝，每一步都有精密的數據與商業邏輯支撐。</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">跨媒體敘事</h4>
+                        <p class="text-xs text-slate-500">不只是音樂，還有與小說、手遊結合的宏大「世界觀」。</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">數位社群紅利</h4>
+                        <p class="text-xs text-slate-500">極度善用社交平台與全球粉絲零距離互動。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-purple-900 text-white p-8 rounded-3xl">
+                <h3 class="text-xl font-bold mb-4">產業未來展望</h3>
+                <ul class="list-disc list-inside space-y-2 text-purple-200 text-sm">
+                    <li>虛擬偶像與 AI 歌手的興起 (如 aespa 的 AI 化身、PLAVE)。</li>
+                    <li>本地化 K-pop：在各國直接選拔成員，保留 K-pop 培訓系統但服務當地。</li>
+                    <li>更深層次的可持續性發展議題（環保包裝、藝人心理健康）。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="max-w-5xl mx-auto mt-12 px-6 text-center text-slate-400 text-sm">
+        <p>© 2024 K-POP 產業探索工具 · 專業分析報告</p>
+    </footer>
+
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab-btn');
+            });
+
+            // Show selected content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Activate selected button
+            document.getElementById('btn-' + tabId).classList.add('active-tab-btn');
+
+            // Optional: scroll to top of main content on mobile
+            if (window.innerWidth < 768) {
+                window.scrollTo({
+                    top: document.querySelector('nav').offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
